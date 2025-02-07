@@ -1,10 +1,1 @@
-import './style.scss'
-import { setupCounter } from './counter.js'
-
-document.querySelector('#app').innerHTML = `
-  <div>
-  
-  </div>
-`
-
-setupCounter(document.querySelector('#counter'))
+import './styles'
