@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magwai</title>
+    <meta name="description" content="Описание Magwai" />
   </head>
   <body>
     <header class="header">
@@ -25,8 +26,8 @@
             />
           </svg>
         </button>
-        <a class="header__logo" href="/">
-          <img src="/logo.svg" alt="Magwai" loading="eager"/>
+        <a class="header__logo" href="/" aria-label="Magwai">
+          <img src="/logo.svg" width="157" height="60" alt="" loading="eager"/>
         </a>
         <nav class="header__nav">
           <ul class="header__nav-list">
@@ -64,9 +65,9 @@
       </div>
     </header>
     <main class="main">
-      <section class="hero">
-        <div class="container">
-          <h1 class="hero__title">Полет Илона Маска и DOGIE COIN</h1>
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero__inner container">
+          <h1 id="heroTitle" class="hero__title h1">Полет Илона Маска и DOGIE COIN</h1>
           <p class="hero__text">
             В прошлый четверг все офигели от полета DOGIE COIN на марс.
           </p>
@@ -76,25 +77,12 @@
         </div>
       </section>
       <section class="cards">
-        <div class="container">
+        <div class="cards__inner container">
           <h2 class="cards__title">
             Карточки
           </h2>
-          <div class="cards__wrapper">
-            <article class="card">
-              <img class="card__image" src="./src/assets/images/bitmap.jpg" alt="Суть изображения">
-              <span class="card__slug">bridge</span>
-              <h3 class="card__title">How to increase your productivity with a Music</h3>
-              <p class="card__text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut autem commodi consequatur, consequuntur cupiditate ex facilis ipsum iste laboriosam maxime minima minus neque nisi nostrum praesentium quo repudiandae sequi veniam voluptates. Animi cumque doloremque eligendi fugiat, fugit inventore ipsa magni non odit qui! A ab accusamus, aliquam aut corporis cupiditate dolorem ducimus ea fuga harum id illum impedit ipsam laudantium magni maxime minus mollitia perspiciatis placeat qui quidem recusandae rem, repellendus soluta sunt, tempora totam ut velit vitae voluptas? A ab accusamus ad adipisci alias aut blanditiis commodi culpa deserunt dolorem doloribus enim est ex excepturi, expedita fugiat id itaque iusto maxime nam nemo nobis non nulla odio odit perspiciatis porro praesentium quia recusandae reiciendis repudiandae saepe soluta unde ut veniam vero voluptatem! Assumenda aut blanditiis corporis culpa cum dignissimos doloremque doloribus earum error fuga harum id illo ipsum iure laboriosam laudantium, libero minima mollitia, nisi odit omnis pariatur quam quasi quo sequi similique sint soluta totam voluptas voluptatum? Alias animi assumenda atque aut corporis delectus deleniti dolor dolorum ea hic incidunt labore laboriosam nihil non obcaecati odit qui quidem quisquam, saepe sed sequi sit tenetur voluptatum! Asperiores aut consequuntur eos ex iste neque non pariatur placeat, quaerat quam, quasi quibusdam, repellat sapiente temporibus voluptatibus. A accusamus architecto asperiores in itaque libero nisi quidem totam ullam veniam? Ab accusantium architecto consequuntur corporis doloremque dolorum ducimus eius eum ex facere fugit impedit natus nobis quo, temporibus. Deleniti dolore esse expedita iure perferendis quae quam quibusdam quod tempora voluptate! Mollitia, tempora?
-              </p>
-              <address class="card__address">
-                Posted by <strong>Eugenia</strong> on <time>July  24, 2019</time>
-              </address>
-              <button class="cards__button">Continue reading</button>
-            </article>
-          </div>
-          <button class="header__actions-button button-skew actions-link_request">
+          <div id="cardsWrapper" class="cards__wrapper"></div>
+          <button id="loadCards" class="cards__load button-skew actions-link_request">
             <span>Загрузить ещё</span>
           </button>
         </div>
@@ -103,7 +91,7 @@
     <footer class="footer">
       <div class="container">
         <p class="footer__text">
-          @ Magvai <time datetime="2025-02-10">2025</time>
+          @ Magwai <time datetime="2025-02-10">2025</time>
         </p>
       </div>
     </footer>

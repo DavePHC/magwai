@@ -1,5 +1,4 @@
-@import "./helpers/mixins";
-@import "./helpers/media";
+@use "./helpers/index" as *;
 
 .container {
   width: 100%;

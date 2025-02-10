@@ -1,5 +1,4 @@
-@import "./helpers/mixins";
-@import "./helpers/media";
+@use "./helpers/index" as *;
 
 html {
   &.is-locked {
@@ -8,13 +7,12 @@ html {
 }
 
 body {
-  @include fluid-text(18, 14);
+  @include fluid-text(16, 14);
 
   display: flex;
   flex-direction: column;
   font-family: var(--font-family-base), sans-serif;
-  color: var(--color-grey-60);
-  background-color: var(--color-black-08);
+  background-color: var(--color-dark-grey);
 }
 
 main {
@@ -31,7 +29,7 @@ h6, .h6 {
 }
 
 h1, .h1 {
-  @include fluid-text(58, 28);
+  @include fluid-text(42, 20);
 
   font-weight: 700;
 }

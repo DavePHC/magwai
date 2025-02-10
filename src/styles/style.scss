@@ -1,54 +1,59 @@
-@import "./helpers/mixins";
-@import "./helpers/media";
+@use "./helpers/index" as *;
 
-:root {
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-dark-grey: #131313;
-  --color-grey: #171717;
-  --color-text: #666666;
-  --color-accent: #C2AB81;
-  --color-border-latter: #808080;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+
+
 
 .header {
   width: 100%;
+  padding-block: fluid(28, 15);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 70px;
+  }
+
+  &__logo {
+    width: fluid(157, 113);
+
+    @include hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    column-gap: 42px;
+  }
+
+  &__nav-link {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-white);
+    font-size: 14px;
+    line-height: 150%;
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    column-gap: 10px;
+    margin-left: auto;
+    margin-right: 25px;
+  }
 }
 
-.header__inner {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 70px;
-  align-items: center;
-  padding: fluid-to-laptop(76, 50);
-}
+
+
 
 .burger-button {
   @include flex-center(true);
@@ -98,29 +103,11 @@ h1 {
   }
 }
 
-.header__nav-list {
-  display: flex;
-  align-items: center;
-  column-gap: 42px;
-}
 
-.header__nav-link {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-white);
-  font-size: 14px;
-  line-height: 150%;
-}
 
 
 //Buttons
 
-.header__actions {
-  display: flex;
-  column-gap: 10px;
-  margin-left: auto;
-  margin-right: 25px;
-}
 
 .button-skew {
   position: relative;
@@ -169,3 +156,132 @@ h1 {
     transform: skew(-1deg);
   }
 }
+
+
+// HERO
+
+.hero {
+  --hero-gradient: linear-gradient(
+    to top,
+    var(--color-dark-grey) 0%,
+    rgb(19 19 19 / 0) 100%) 50% 100%/100% 40%;
+
+  display: flex;
+  align-items: end;
+  border-radius: 60px 60px 0 0;
+  min-height: calc(100vh - 111px);
+  background:
+    var(--hero-gradient),
+    url("../assets/images/bg.png") 50%/cover;
+  padding-bottom: fluid(95, 50);
+  background-repeat: no-repeat;
+
+  @include mobile {
+    min-height: calc(100vh - 72px);
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  &__title {
+    max-width: 29rem;
+    line-height: 1.3;
+  }
+
+  &__text {
+    color: rgb(255 255 255 / 80%);
+  }
+}
+
+// END HERO
+
+// CARDS
+
+.cards {
+  &__wrapper {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+  }
+
+  &__load {
+    margin: 60px auto 0 auto;
+  }
+}
+
+.card {
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+  &__slug {
+    text-transform: uppercase;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-grey);
+  }
+  &__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-grey);
+  }
+  &__body {
+    padding: 25px 25px 30px 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: var(--color-white);
+  }
+  &__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 144px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--color-text);
+  }
+  &__author {
+    color: var(--color-text);
+    font-size: 12px;
+  }
+  &__button {
+    width: 100%;
+    padding: 15px 20px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: none;
+  }
+}
+
+// END CARDS
+
+// FOOTER
+
+.footer {
+  padding: 25px 0;
+  &__text {
+    color: var(--color-white);
+  }
+}
+
+
+
+//END FOOTER
