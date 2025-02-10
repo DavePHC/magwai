@@ -104,8 +104,6 @@
 }
 
 
-
-
 //Buttons
 
 
@@ -117,6 +115,7 @@
   transform: skew(-20deg);
   &>img,
   &>span {
+    display: inline-block;
     transform: skew(20deg);
   }
 }
@@ -140,10 +139,13 @@
   line-height: 150%;
   background-color: var(--color-accent);
   color: var(--color-white);
+  outline: 2px solid transparent;
   border: none;
+  transition: all 0.3s ease-in-out;
   @mixin mobile {
     width: 100%;
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -153,7 +155,16 @@
     width: 5px;
     height: 101%;
     background-color: var(--color-white);
-    transform: skew(-1deg);
+    transform: skew(-1deg) translateX(0);
+    transition: all 0.2s ease-in-out;
+  }
+  &:hover {
+    background-color: white;
+    color: var(--color-grey);
+    &::after {
+      transform: skew(-1deg) translateX(3px);
+      background-color: var(--color-accent);
+    }
   }
 }
 
@@ -267,7 +278,13 @@
     font-size: 14px;
     background-color: var(--color-black);
     color: var(--color-white);
-    border: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease-in-out;
+    @include hover {
+      border-color: var(--color-black);
+      background-color: var(--color-white);
+      color: var(--color-grey);
+    }
   }
 }
 
