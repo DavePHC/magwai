@@ -11,6 +11,18 @@
   @include visually-hidden;
 }
 
+.visible-tablet-l {
+  @include tablet-l-above {
+    display: none !important;
+  }
+}
+
+.hidden-tablet-l {
+  @include tablet-l {
+    display: none !important;
+  }
+}
+
 .visible-tablet {
   @include tablet-above {
     display: none !important;

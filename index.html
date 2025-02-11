@@ -8,9 +8,9 @@
     <meta name="description" content="Описание Magwai" />
   </head>
   <body>
-    <header class="header">
+    <header class="header" data-js-overlay-menu>
       <div class="header__inner container">
-        <button class="header__burger-button burger-button visible-tablet">
+        <button class="header__burger-button burger-button visible-tablet-l" data-js-overlay-menu-burger-button>
           <svg class="burger-button__svg" width="30" height="30" viewBox="0 0 100 100">
             <path
                 class="burger-button__line burger-button__line--1"
@@ -29,34 +29,49 @@
         <a class="header__logo" href="/" aria-label="Magwai">
           <img src="/logo.svg" width="157" height="60" alt="" loading="eager"/>
         </a>
-        <nav class="header__nav">
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">услуги</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">абонементы</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">почему мы</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">оборудование</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">акции</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">faq</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="/">контакты</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="header__actions">
+
+        <dialog class="header__dialog" data-js-overlay-menu-dialog>
+          <nav class="header__nav">
+            <ul class="header__nav-list">
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">услуги</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">абонементы</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">почему мы</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">оборудование</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">акции</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">faq</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="/">контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__actions visible-mobile">
+            <a class="header__actions-link actions-link_phone button-skew" href="tel:+79155256921">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.3342 14.2139L15.0564 12.491C15.2883 12.2618 15.5818 12.1049 15.9012 12.0394C16.2205 11.9739 16.552 12.0025 16.8555 12.1218L18.9544 12.9602C19.261 13.0847 19.5239 13.2972 19.71 13.5709C19.8961 13.8447 19.997 14.1674 20 14.4985V18.3442C19.9982 18.5694 19.9509 18.7919 19.8609 18.9983C19.7709 19.2047 19.6401 19.3908 19.4763 19.5453C19.3125 19.6998 19.1192 19.8195 18.9079 19.8973C18.6967 19.9751 18.4719 20.0093 18.2471 19.9979C3.5392 19.0826 0.57149 6.62239 0.010239 1.85368C-0.0158147 1.6195 0.00798984 1.38246 0.0800864 1.15814C0.152183 0.933831 0.270938 0.727331 0.428538 0.55223C0.586138 0.377128 0.779012 0.237394 0.994471 0.142219C1.20993 0.0470438 1.44309 -0.00141458 1.67862 3.14343e-05H5.3921C5.72347 0.0010127 6.04698 0.101149 6.321 0.287561C6.59503 0.473973 6.80704 0.738135 6.92977 1.04607L7.7678 3.14584C7.89101 3.44817 7.92245 3.78011 7.85818 4.10021C7.79391 4.4203 7.63679 4.71436 7.40645 4.94565L5.68426 6.66854C5.68426 6.66854 6.67606 13.3832 13.3342 14.2139Z"/>
+              </svg>
+            </a>
+            <button class="header__actions-button button-skew actions-link_request">
+              <span>оставить заявку</span>
+            </button>
+          </div>
+        </dialog>
+        <div class="header__actions hidden-mobile">
           <a class="header__actions-link actions-link_phone button-skew" href="tel:+79155256921">
-            <img src="./src/assets/images/phone.svg" alt="">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.3342 14.2139L15.0564 12.491C15.2883 12.2618 15.5818 12.1049 15.9012 12.0394C16.2205 11.9739 16.552 12.0025 16.8555 12.1218L18.9544 12.9602C19.261 13.0847 19.5239 13.2972 19.71 13.5709C19.8961 13.8447 19.997 14.1674 20 14.4985V18.3442C19.9982 18.5694 19.9509 18.7919 19.8609 18.9983C19.7709 19.2047 19.6401 19.3908 19.4763 19.5453C19.3125 19.6998 19.1192 19.8195 18.9079 19.8973C18.6967 19.9751 18.4719 20.0093 18.2471 19.9979C3.5392 19.0826 0.57149 6.62239 0.010239 1.85368C-0.0158147 1.6195 0.00798984 1.38246 0.0800864 1.15814C0.152183 0.933831 0.270938 0.727331 0.428538 0.55223C0.586138 0.377128 0.779012 0.237394 0.994471 0.142219C1.20993 0.0470438 1.44309 -0.00141458 1.67862 3.14343e-05H5.3921C5.72347 0.0010127 6.04698 0.101149 6.321 0.287561C6.59503 0.473973 6.80704 0.738135 6.92977 1.04607L7.7678 3.14584C7.89101 3.44817 7.92245 3.78011 7.85818 4.10021C7.79391 4.4203 7.63679 4.71436 7.40645 4.94565L5.68426 6.66854C5.68426 6.66854 6.67606 13.3832 13.3342 14.2139Z"/>
+            </svg>
           </a>
           <button class="header__actions-button button-skew actions-link_request">
             <span>оставить заявку</span>
@@ -71,14 +86,14 @@
           <p class="hero__text">
             В прошлый четверг все офигели от полета DOGIE COIN на марс.
           </p>
-          <button class="header__actions-button button-skew actions-link_request">
+          <button class="hero__button button-skew actions-link_request">
             <span>оставить заявку</span>
           </button>
         </div>
       </section>
       <section class="cards">
         <div class="cards__inner container">
-          <h2 class="cards__title">
+          <h2 class="cards__title h2">
             Карточки
           </h2>
           <div id="cardsWrapper" class="cards__wrapper"></div>

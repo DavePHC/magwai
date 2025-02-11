@@ -1,5 +1,7 @@
 import './styles'
+import OverlayMenu from "./modules/OverlayMenu";
 
+new OverlayMenu();
 
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("cardsWrapper");

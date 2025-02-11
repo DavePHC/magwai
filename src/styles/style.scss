@@ -1,11 +1,6 @@
 @use "./helpers/index" as *;
 
-
-
-
-
-
-
+// HEADER
 
 .header {
   width: 100%;
@@ -16,20 +11,127 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 70px;
+    @include laptop {
+      column-gap: 30px;
+    }
+    @include tablet {
+
+    }
+  }
+
+  .burger-button {
+    @include flex-center(true);
+
+    width: 37px;
+    height: 31px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+
+    @include hover {
+      background-color: var(--color-accent);
+    }
+
+    @include tablet-l {
+      position: relative;
+      z-index: 3;
+    }
+
+    &.is-active {
+      .burger-button__line {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+
+        &--2 {
+          stroke-dasharray: 1 60;
+          stroke-dashoffset: -30;
+        }
+      }
+    }
+
+    &:not(.is-active) {
+      .burger-button__line--3 {
+        stroke-dasharray: 30 207;
+        stroke-dashoffset: -30;
+      }
+    }
+
+    &__line {
+      fill: none;
+      stroke: var(--color-white);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 60 207;
+      transition:
+              stroke-dasharray var(--transition-duration-longer) cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset var(--transition-duration-longer) cubic-bezier(0.4, 0, 0.2, 1);
+
+      &--2 {
+        stroke-dasharray: 60 60;
+      }
+    }
   }
 
   &__logo {
     width: fluid(157, 113);
-
+    transform: translateY(-2px); // Из-за пустого места вверху SVG см. исходник в Figma
     @include hover {
       transform: scale(1.05);
     }
+    @include tablet-l {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  &__dialog {
+    position: fixed;
+    flex-direction: column;
+    row-gap: 40px;
+    z-index: 2;
+    padding: 166px var(--container-padding-x) 20px var(--container-padding-x);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-grey);
+    border: none;
+    overflow-y: auto;
+    transition-duration: var(--transition-duration-longer);
+    transition-behavior: allow-discret;
+     @include tablet-l-above {
+       display: contents;
+     }
+
+      @mixin starting-styles {
+        opacity: 0;
+        translate: 50%;
+      }
+
+      &[open] {
+        display: flex;
+        @starting-style {
+          @include starting-styles;
+        }
+      }
+
+      &:not([open]) {
+        transition-duration: var(--transition-duration-longer);
+        @include starting-styles;
+      }
   }
 
   &__nav-list {
     display: flex;
     align-items: center;
     column-gap: 42px;
+    @include laptop {
+      column-gap: 24px;
+    }
+    @include tablet-l {
+      flex-direction: column;
+      align-items: start;
+      row-gap: 15px;
+    }
   }
 
   &__nav-link {
@@ -38,6 +140,23 @@
     color: var(--color-white);
     font-size: 14px;
     line-height: 150%;
+
+    @include laptop {
+      font-size: 13px;
+    }
+
+    @include tablet-l {
+      font-size: 36px;
+      color: transparent;
+      @supports((text-stroke: 2px var(--color-border-latter)) or (-webkit-text-stroke: 2px var(--color-border-latter))) {
+        & {
+          color: transparent;
+          -webkit-text-stroke: 2px var(--color-border-latter);
+          text-stroke: 2px var(--color-border-latter);
+          text-shadow: none;
+        }
+      }
+    }
 
     @include hover {
       color: var(--color-accent);
@@ -49,63 +168,20 @@
     column-gap: 10px;
     margin-left: auto;
     margin-right: 25px;
-  }
-}
-
-
-
-
-.burger-button {
-  @include flex-center(true);
-
-  width: 37px;
-  height: 31px;
-  border: none;
-  padding: 0;
-  background-color: transparent;
-
-  @include hover {
-    background-color: var(--color-accent);
-  }
-
-  &.is-active {
-    .burger-button__line {
-      stroke-dasharray: 90 207;
-      stroke-dashoffset: -134;
-
-      &--2 {
-        stroke-dasharray: 1 60;
-        stroke-dashoffset: -30;
-      }
+    @include tablet-l {
+      position: relative;
+      z-index: 3;
     }
-  }
 
-  &:not(.is-active) {
-    .burger-button__line--3 {
-      stroke-dasharray: 30 207;
-      stroke-dashoffset: -30;
-    }
-  }
-
-  &__line {
-    fill: none;
-    stroke: var(--color-white);
-    stroke-width: 6;
-    stroke-linecap: round;
-    stroke-dasharray: 60 207;
-    transition:
-            stroke-dasharray var(--transition-duration-longer) cubic-bezier(0.4, 0, 0.2, 1),
-            stroke-dashoffset var(--transition-duration-longer) cubic-bezier(0.4, 0, 0.2, 1);
-
-    &--2 {
-      stroke-dasharray: 60 60;
+    @include mobile {
+      margin: auto 16px 0 16px;
+      flex-direction: column;
+      row-gap: 6px;
     }
   }
 }
-
 
 //Buttons
-
 
 .button-skew {
   position: relative;
@@ -113,7 +189,7 @@
   align-items: center;
   justify-content: center;
   transform: skew(-20deg);
-  &>img,
+  &>svg,
   &>span {
     display: inline-block;
     transform: skew(20deg);
@@ -124,7 +200,21 @@
   width: 92px;
   height: 60px;
   border: 1px solid rgb(255 255 255 / 40%);
-  @mixin mobile {
+  transition: all 0.2s ease-in-out;
+  svg {
+    fill: rgb(255 255 255 / 40%);
+  }
+
+  @include hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    svg {
+      fill: rgb(255 255 255 / 100%);
+    }
+  }
+
+  @include mobile {
+    max-width: unset;
     width: 100%;
   }
 }
@@ -142,9 +232,6 @@
   outline: 2px solid transparent;
   border: none;
   transition: all 0.3s ease-in-out;
-  @mixin mobile {
-    width: 100%;
-  }
 
   &::after {
     content: "";
@@ -168,6 +255,18 @@
   }
 }
 
+.header__actions-button {
+  @include mobile {
+    max-width: unset;
+    width: 100%;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// END HEADER
 
 // HERO
 
@@ -204,6 +303,11 @@
 
   &__text {
     color: rgb(255 255 255 / 80%);
+  }
+
+  &__button {
+    z-index: 1;
+    margin-left: 16px;
   }
 }
 
@@ -298,7 +402,5 @@
     color: var(--color-white);
   }
 }
-
-
 
 //END FOOTER
