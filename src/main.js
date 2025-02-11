@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const cardElement = document.createElement("article");
       cardElement.className = "card";
       cardElement.innerHTML = `
-        <img class="card__image" src="../src/assets/images/bitmap.jpg" alt=""/>
+        <img class="card__image" src="../src/assets/images/slot.png" alt=""/>
         <div class="card__body">
           <span class="card__slug">${card.slug}</span>
           <h2 class="card__title">${card.title}</h2>
